@@ -25,7 +25,7 @@
         </div>
 
         <div>
-            <table class="table">
+            <table class="table" id="data-table">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -34,11 +34,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>CopporField</td>
-                    <td>Dickons</td>
-                    <td>Book</td>
-                </tr>
                 </tbody>
             </table>
         </div>
