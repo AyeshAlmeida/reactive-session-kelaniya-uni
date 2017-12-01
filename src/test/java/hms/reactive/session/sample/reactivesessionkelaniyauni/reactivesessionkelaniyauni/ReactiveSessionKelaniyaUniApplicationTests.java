@@ -1,4 +1,4 @@
-package hms.reactive.session.sample.reactivesessionkelaniyauni;
+package hms.reactive.session.sample.reactivesessionkelaniyauni.reactivesessionkelaniyauni;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
