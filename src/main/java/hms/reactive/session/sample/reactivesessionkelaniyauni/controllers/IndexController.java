@@ -33,9 +33,13 @@ public class IndexController {
     public List<Application> getApplicationData(@RequestParam(name = "author", required = false) String author){
         LOGGER.debug("Searching Applications for Author [{}]", author);
         if(author == null || author.equals("")){
-            return appRepository.findAll();
+            List<Application> all = appRepository.findAll();
+            LOGGER.debug("AllApps [{}]", all.size());
+            return all;
         }else {
-            return appRepository.findByAuthor(author);
+            List<Application> byAuthorApps = appRepository.findByAuthor(author);
+            LOGGER.debug("ByAuthorApps [{}]", byAuthorApps.size());
+            return byAuthorApps;
         }
     }
 
@@ -44,9 +48,13 @@ public class IndexController {
     public List<Book> getBookData(@RequestParam(name = "author", required = false) String author){
         LOGGER.debug("Searching Books for Author [{}]", author);
         if(author == null || author.equals("")){
-            return bookRepository.findAll();
+            List<Book> all = bookRepository.findAll();
+            LOGGER.debug("AllBooks [{}]", all.size());
+            return all;
         }else {
-            return bookRepository.findByAuthor(author);
+            List<Book> byAuthorBooks = bookRepository.findByAuthor(author);
+            LOGGER.debug("ByAuthorBooks [{}]", byAuthorBooks.size());
+            return byAuthorBooks;
         }
     }
 }

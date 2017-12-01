@@ -6,7 +6,7 @@ public class Book {
     @Id
     private long id;
     private String author;
-    private String title;
+    private String name;
     private String genre;
     private String type;
 
@@ -15,7 +15,7 @@ public class Book {
         return "Book{" +
                 "id=" + id +
                 ", author='" + author + '\'' +
-                ", title='" + title + '\'' +
+                ", name='" + name + '\'' +
                 ", genre='" + genre + '\'' +
                 ", type='" + type + '\'' +
                 '}';
@@ -26,7 +26,7 @@ public class Book {
     public Book(long id, String author, String title, String genre, String type) {
         this.id = id;
         this.author = author;
-        this.title = title;
+        this.name = title;
         this.genre = genre;
         this.type = type;
     }
@@ -47,12 +47,12 @@ public class Book {
         this.author = author;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getGenre() {
