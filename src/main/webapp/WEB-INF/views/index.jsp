@@ -41,7 +41,7 @@
     </div>
 
     <script src="<c:url value="/resources/jQuery/jquery-3.2.1.min.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="/resources/RxJs/Rx.min.js"/>"></script>
+    <%--<script type="text/javascript" src="<c:url value="/resources/RxJs/Rx.min.js"/>"></script>--%>
     <script type="text/javascript" src="<c:url value="/resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/resources/js/InputMonitor.js"/>"></script>
     </body>
