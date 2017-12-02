@@ -2,7 +2,7 @@ package hms.reactive.session.sample.reactivesessionkelaniyauni.service;
 
 
 import com.github.javafaker.Faker;
-import hms.reactive.session.sample.reactivesessionkelaniyauni.models.Application;
+import hms.reactive.session.sample.reactivesessionkelaniyauni.models.Movie;
 import hms.reactive.session.sample.reactivesessionkelaniyauni.models.Book;
 import org.springframework.stereotype.Service;
 
@@ -19,16 +19,16 @@ public class MockService {
         faker = new Faker(Locale.ENGLISH, new Random(System.nanoTime()));
     }
 
-    public List<Application> getApplications(int count) {
+    public List<Movie> getApplications(int count) {
         return IntStream.range(0, count)
                 .boxed()
                 .map((i) -> {
-                    return new Application(
+                    return new Movie(
                             System.nanoTime(),
                             faker.app().name(),
                             faker.app().version(),
                             faker.app().author(),
-                            "application"
+                            "movie"
 
                     );
                 })

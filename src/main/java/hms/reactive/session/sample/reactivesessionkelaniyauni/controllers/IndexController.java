@@ -1,6 +1,6 @@
 package hms.reactive.session.sample.reactivesessionkelaniyauni.controllers;
 
-import hms.reactive.session.sample.reactivesessionkelaniyauni.models.Application;
+import hms.reactive.session.sample.reactivesessionkelaniyauni.models.Movie;
 import hms.reactive.session.sample.reactivesessionkelaniyauni.models.Book;
 import hms.reactive.session.sample.reactivesessionkelaniyauni.repositories.AppRepository;
 import hms.reactive.session.sample.reactivesessionkelaniyauni.repositories.BookRepository;
@@ -28,17 +28,17 @@ public class IndexController {
         return "index";
     }
 
-    @RequestMapping("/application")
+    @RequestMapping("/movie")
     @ResponseBody
-    public List<Application> getApplicationData(@RequestParam(name = "author", required = false) String author){
-        LOGGER.debug("Searching Applications for Author [{}]", author);
+    public List<Movie> getMovieData(@RequestParam(name = "author", required = false) String author){
+        LOGGER.debug("Searching Movies for Author [{}]", author);
         if(author == null || author.equals("")){
-            List<Application> all = appRepository.findAll();
-            LOGGER.debug("AllApps [{}]", all.size());
+            List<Movie> all = appRepository.findAll();
+            LOGGER.debug("All Movies Count [{}]", all.size());
             return all;
         }else {
-            List<Application> byAuthorApps = appRepository.findByAuthor(author);
-            LOGGER.debug("ByAuthorApps [{}]", byAuthorApps.size());
+            List<Movie> byAuthorApps = appRepository.findByName(author);
+            LOGGER.debug("By Director Movie Count [{}]", byAuthorApps.size());
             return byAuthorApps;
         }
     }
@@ -49,11 +49,11 @@ public class IndexController {
         LOGGER.debug("Searching Books for Author [{}]", author);
         if(author == null || author.equals("")){
             List<Book> all = bookRepository.findAll();
-            LOGGER.debug("AllBooks [{}]", all.size());
+            LOGGER.debug("All Book Count [{}]", all.size());
             return all;
         }else {
-            List<Book> byAuthorBooks = bookRepository.findByAuthor(author);
-            LOGGER.debug("ByAuthorBooks [{}]", byAuthorBooks.size());
+            List<Book> byAuthorBooks = bookRepository.findByName(author);
+            LOGGER.debug("By Author Book Count [{}]", byAuthorBooks.size());
             return byAuthorBooks;
         }
     }

@@ -4,20 +4,21 @@
         <title>RxJs Sample</title>
         <link rel="stylesheet" href="<c:url value="/resources/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>"/>
     </head>
-    <body>
+    <body style="background-image: url('/resources/images/back.jpg');background-repeat: no-repeat;
+                 background-attachment: fixed;background-position: center;color: white;">
     <div class="container">
         <h2 class="lead" align="center">
-            <b>Search For Applications or Books....</b>
+            <b>Free Book / Movie Details</b>
         </h2>
         <div>
             <form class="form-horizontal">
                 <fieldset>
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="author-name">Search Criterea</label>
+                        <label class="col-md-4 control-label" for="author-name">Search Criteria</label>
                         <div class="col-md-5">
-                            <input id="author-name" name="lab_1" type="text" placeholder="author " class="form-control input-md" required="">
-                            <span class="help-block">enter the author name</span>
+                            <input id="name" name="lab_1" type="text" placeholder="name " class="form-control input-md" required="">
+                            <span class="help-block">enter the book / movie name</span>
                         </div>
                     </div>
                 </fieldset>
@@ -26,14 +27,14 @@
 
         <div>
             <table class="table" id="data-table">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Author</th>
-                    <th>Category</th>
-                </tr>
+                <thead style="font-size: 25px">
+                    <tr>
+                        <th>Name</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                    </tr>
                 </thead>
-                <tbody>
+                <tbody style="font-size: 15px;">
                 </tbody>
             </table>
         </div>

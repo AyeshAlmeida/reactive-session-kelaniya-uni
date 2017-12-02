@@ -2,7 +2,7 @@ package hms.reactive.session.sample.reactivesessionkelaniyauni.models;
 
 import org.springframework.data.annotation.Id;
 
-public class Application {
+public class Movie {
     @Id
     private long id;
     private String name;
@@ -12,7 +12,7 @@ public class Application {
 
     @Override
     public String toString() {
-        return "Application{" +
+        return "Movie{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", version='" + version + '\'' +
@@ -21,9 +21,9 @@ public class Application {
                 '}';
     }
 
-    public Application(){}
+    public Movie(){}
 
-    public Application(long id, String name, String version, String author, String type) {
+    public Movie(long id, String name, String version, String author, String type) {
         this.id = id;
         this.name = name;
         this.version = version;

@@ -1,10 +1,10 @@
 $(document).ready(function () {
-    Rx.Observable.fromEvent(document.getElementById("author-name"), "keyup")
+    Rx.Observable.fromEvent(document.getElementById("name"), "keyup")
                  .flatMap((e) => (concatObservables(doGetApps(e.target.value), doGetBooks(e.target.value))))
                  .subscribe((e) => insertDataIntoTable(e));
 
 	function doGetApps(e) {
-        var url = "http://localhost:7878/application?author="+e;
+        var url = "http://localhost:7878/movie?author="+e;
         return Rx.Observable.fromPromise($.getJSON(url));
 	}
 

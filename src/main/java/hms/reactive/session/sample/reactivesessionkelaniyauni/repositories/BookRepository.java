@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface BookRepository extends MongoRepository<Book,Long> {
 
-    @Query("{ 'author' : { '$regex': '^.*?0.*', '$options': 'si' } }")
-    List<Book> findByAuthor(String authorRegex);
+    @Query("{ 'name' : { '$regex': '^.*?0.*', '$options': 'si' } }")
+    List<Book> findByName(String authorRegex);
 
 }

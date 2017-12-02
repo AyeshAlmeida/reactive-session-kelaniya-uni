@@ -24,7 +24,7 @@ public class DbInitializer implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
-        mockService.getApplications(1).forEach(appRepository::save);
-        mockService.getBooks(1).forEach(bookRepository::save);
+        mockService.getApplications(100).forEach(appRepository::save);
+        mockService.getBooks(100).forEach(bookRepository::save);
     }
 }
