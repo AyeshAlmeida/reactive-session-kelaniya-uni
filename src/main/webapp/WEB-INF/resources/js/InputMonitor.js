@@ -1,11 +1,18 @@
 $(document).ready(function () {
     Rx.Observable.fromEvent(document.getElementById("name"), "keyup")
-                 .flatMap((e) => (concatObservables(doGetMovies(e.target.value), doGetBooks(e.target.value))))
+                 // .throttleTime(1000)
+                 .flatMap((e) => getMergedObservable(e))
                  .subscribe(
-                     (e) => insertDataIntoTable(e),
-                     (err) => console.error(err),
-                     () => (console.log("All Values Retrieved"))
+                     (e) => handleSuccess(e),
+                     (err) => handleError(err),
+                     () => handleComplete()
                  );
+
+    function getMergedObservable(event) {
+        var value = event.target.value;
+        return mergeObservables(
+                    doGetMovies(value), doGetBooks(value));
+    }
 
 	function doGetMovies(e) {
         var url = "http://localhost:7878/movie?author="+e;
@@ -17,11 +24,14 @@ $(document).ready(function () {
         return Rx.Observable.fromPromise($.getJSON(url));
     }
 
-	function concatObservables(ob1, ob2) {
-		return ob1.merge(ob2).reduce((acc, elem) => acc.concat(elem), []);
+	function mergeObservables(ob1, ob2) {
+		return ob1.merge(ob2)
+                  .reduce(
+                      (acc, elem) => acc.concat(elem), []
+                  );
 	}
 
-	function insertDataIntoTable(data_set) {
+	function handleSuccess(data_set) {
 		var table = document.getElementById("data-table");
 		var table_body = table.getElementsByTagName("tbody")[0];
 		deleteTableRows(table_body);
@@ -40,6 +50,14 @@ $(document).ready(function () {
         while (tableBody.hasChildNodes()) {
             tableBody.removeChild(tableBody.lastChild);
         }
+    }
+
+    function handleError(error) {
+        console.error(error);
+    }
+
+    function handleComplete() {
+        console.log("Completely handled the Event!");
     }
 });
 
