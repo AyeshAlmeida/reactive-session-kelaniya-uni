@@ -1,9 +1,13 @@
 $(document).ready(function () {
     Rx.Observable.fromEvent(document.getElementById("name"), "keyup")
-                 .flatMap((e) => (concatObservables(doGetApps(e.target.value), doGetBooks(e.target.value))))
-                 .subscribe((e) => insertDataIntoTable(e));
+                 .flatMap((e) => (concatObservables(doGetMovies(e.target.value), doGetBooks(e.target.value))))
+                 .subscribe(
+                     (e) => insertDataIntoTable(e),
+                     (err) => console.error(err),
+                     () => (console.log("All Values Retrieved"))
+                 );
 
-	function doGetApps(e) {
+	function doGetMovies(e) {
         var url = "http://localhost:7878/movie?author="+e;
         return Rx.Observable.fromPromise($.getJSON(url));
 	}
